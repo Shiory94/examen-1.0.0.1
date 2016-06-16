@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="pe.com.peruInka.core.domain.Ticket" table="ticket">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+
+		<many-to-one name="status"
+			class="pe.com.peruInka.core.domain.StatusTicket" lazy="false" fetch="select">
+			<column name="status" />
+		</many-to-one>
+
+		<many-to-one name="customer" 
+			class="pe.com.peruInka.core.domain.Customer"
+			lazy="false" fetch="select">
+			<column name="customerId"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>
